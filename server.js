@@ -25,9 +25,9 @@ const db = mysql.createConnection(
 );
 
 // Query database
-db.query('SELECT * FROM students', function (err, results) {
+/*db.query('SELECT * FROM students', function (err, results) {
   console.log(results);
-});
+}); */
 
 // Default response for any other request (Not Found)
 app.use((req, res) => {
@@ -37,3 +37,27 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+const questions = [
+    {
+        type: 'list',
+        message: 'placeholder',
+        name: 'license',
+        choices: [
+          "View Departments",
+          "View Employees",
+          "View jobs",
+          "Add a Department",
+          "Add a job",
+          "Add an Employee",
+          "Update Employee",
+          ],
+    },
+];
+
+const runProgram = async () => {
+    console.log("placeholder");
+    await inquirer.prompt(questions);
+};
+
+runProgram();

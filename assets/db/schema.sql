@@ -15,8 +15,7 @@ CREATE TABLE job (
     wage DECIMAL NOT NULL,
     dep_id INT,
     PRIMARY KEY(id),
-    FOREIGN KEY (dep_id);
-    REFERENCES department(id)
+    FOREIGN KEY (dep_id) REFERENCES department(id)
 );
 
 CREATE TABLE employee (
@@ -26,6 +25,5 @@ CREATE TABLE employee (
     job_id INT,
     manager_id BOOLEAN DEFAULT FALSE,
     PRIMARY KEY (id),
-    FOREIGN KEY (job_id),
-    REFERENCES job(id)
+    FOREIGN KEY (job_id) REFERENCES job(id)
 );
