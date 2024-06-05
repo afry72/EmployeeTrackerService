@@ -1,7 +1,7 @@
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const express = require('express');
-
+//importing functions for viewing adding and updating employees departments and jobs
 const {viewEmployee, addEmployee, updateEmployee} = require('./assets/js/employee.js');
 const {viewDepartment, addDepartment} = require('./assets/js/department.js');
 const {viewJob, addJob} = require('./assets/js/job.js');
@@ -32,11 +32,11 @@ const db = mysql.createConnection(
 app.use((req, res) => {
   res.status(404).end();
 });
-
+//once port is open the console will log it 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
+// Home screen questions giving the basic options for this application 
 const questions = [
     {
         type: 'list',
@@ -53,7 +53,7 @@ const questions = [
           ],
     },
 ];
-
+// Async function to run the employee management system prompting user input and directing database operations based on selected option using the switch case break function
 const runProgram = async () => {
     console.log("=======");
     console.log("Employee Management System(press Ctrl+C to exit)");

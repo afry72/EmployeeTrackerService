@@ -1,8 +1,8 @@
 const inquirer = require('inquirer');
-
+//function to view departments
 function viewDepartment(db, runProgram) {
     const queryDep = 'SELECT * FROM department';
-
+    //finds all of the departments and then outputs a section for each department
 
     db.query(queryDep, (error, results) => {
         if (error) {
@@ -24,7 +24,7 @@ function viewDepartment(db, runProgram) {
         runProgram();
     });
 };
-
+//function to add more departments 
 const addDepartment = async (db, runProgram) => {
     const addDep = await inquirer.prompt([
         {
